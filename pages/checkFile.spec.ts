@@ -24,7 +24,7 @@ test("Create/Register User Account via API", async ({ page }) => {
 
   const response = await page.request.post(apiURL, {
     headers: { "Content-Type": "application/json" },
-    postData: JSON.stringify(userData),
+    data: JSON.stringify(userData),
   });
 
   const statusCode = response.status();
@@ -43,7 +43,7 @@ test("Create/Register User Account via API", async ({ page }) => {
 
 //   const response = await page.request.post(apiURL, {
 //     headers: { "Content-Type": "application/json" },
-//     postData: JSON.stringify(loginData),
+//     data: JSON.stringify(loginData),
 //   });
 //   console.log("Response Status Code:", response.status());
 //   console.log("Response Body:", await response.text());
@@ -64,7 +64,7 @@ test("Verify Login with Invalid Details via API", async ({ page }) => {
 
   const response = await page.request.post(apiURL, {
     headers: { "Content-Type": "application/json" },
-    postData: JSON.stringify(invalidLoginData),
+    data: JSON.stringify(invalidLoginData),
   });
 
   const statusCode = response.status();
@@ -85,7 +85,7 @@ test("Search Product via API", async ({ page }) => {
 
     const response = await page.request.post(apiURL, {
       headers: { "Content-Type": "application/json" },
-      postData: JSON.stringify(searchData),
+      data: JSON.stringify(searchData),
     });
 
     const statusCode = response.status();
